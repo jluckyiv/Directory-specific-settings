@@ -21,7 +21,9 @@ endif
 " end up with multiple autocmd entries if this file is sourced more than once.
 augroup dirsettings
 au! dirsettings
-au dirsettings BufNewFile,BufReadPost * call SourceFileUpward('.vimdir')
+" Use BufEnter so Netrw directory load fires script
+" au dirsettings BufNewFile,BufReadPost * call SourceFileUpward('.vimdir')
+au dirsettings BufEnter * call SourceFileUpward('.vimdir')
 
 "
 " Search upward for the given file and source it.  This makes for a simpler
